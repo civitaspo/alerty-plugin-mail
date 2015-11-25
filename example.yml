@@ -1,0 +1,18 @@
+log_path: STDOUT
+log_level: 'debug'
+timeout: 10
+lock_path: /tmp/lock
+retry_limit: 2
+retry_wait: 10
+plugins:
+  - type: mail
+    send_from: civitaspo@gmail.com
+    send_to: civitaspo@gmail.com
+    delivery_method: sendmail # see: https://github.com/mikel/mail
+    # delivery_settings:# optional
+    #  address:   'smtp.example.net',
+    #  port:      587,
+    #  domain:    'example',
+    #  user_name: 'civitaspo',
+    #  password:  'xxxxxxxxx' 
+    subject: "FATAL: [${hostname}] ${command}" # optional
