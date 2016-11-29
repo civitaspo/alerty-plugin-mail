@@ -18,7 +18,7 @@ class Alerty
           to      config.send_to
         end
         if delivery_settings
-          @mail.delivery_method(delivery_method, delivery_settings)
+          @mail.delivery_method(delivery_method, delivery_settings.map {|k, v| [k.to_sym, v] }.to_h)
         else
           @mail.delivery_method(delivery_method)
         end
